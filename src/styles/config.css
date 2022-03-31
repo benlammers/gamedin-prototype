@@ -1,0 +1,25 @@
+html,
+body,
+#root,
+.App {
+   height: 100%;
+}
+
+@media only screen and (min-width: 700px) {
+   #root {
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      background-color: darkgrey;
+      overflow: auto;
+   }
+
+   .App {
+      max-width: 20rem;
+      background-color: white;
+      height: 42rem;
+      width: 100%;
+      border-radius: 1rem;
+      overflow: hidden;
+   }
+}

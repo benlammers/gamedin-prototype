@@ -1,45 +1,29 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Outlet } from "react-router-dom";
+import { ChakraProvider, Grid } from "@chakra-ui/react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import theme from "./theme";
+import "./styles/config.css";
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
-}
+import { Navigation } from "./components/Navigation";
+import { Register } from "./components/Register";
+import { ConnectDiscord } from "./components/ConnectDiscord";
+import { ConnectEpic } from "./components/ConnectEpic";
+import { useAppContext } from "./AppContext";
 
-export default App
+export const App: React.FC = () => {
+   const { showRegister, showDiscord, showEpic } = useAppContext();
+
+   return (
+      <ChakraProvider resetCSS theme={theme}>
+         <Grid as="main" className="App" templateRows="1fr max-content" position="relative">
+            <Grid overflow="auto">
+               <Outlet />
+            </Grid>
+            <Navigation />
+            {showDiscord ? <ConnectDiscord /> : null}
+            {showRegister ? <Register /> : null}
+            {showEpic ? <ConnectEpic /> : null}
+         </Grid>
+      </ChakraProvider>
+   );
+};
