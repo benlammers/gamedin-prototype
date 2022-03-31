@@ -113,6 +113,20 @@ export const TeammateModal: React.FC<TeammateModalProps> = ({ isOpen, onClose, v
                         </Text>
                      </HStack>
                   </Grid>
+                  <Grid gap={3}>
+                     <Text fontWeight='bold' fontSize='xl'>
+                        Achievements
+                     </Text>
+                     <Grid w='full' bg='gray.50' shadow='base' p={2} borderRadius='base' templateColumns='1fr max-content' alignItems='start'>
+                        <Grid>
+                           <Text fontSize='lg' fontWeight='bold'>
+                              Cash Cup
+                           </Text>
+                           <Text>Sept. 21, 2021</Text>
+                        </Grid>
+                        <Grid>#254</Grid>
+                     </Grid>
+                  </Grid>
                </Grid>
             </ModalBody>
          </ModalContent>
