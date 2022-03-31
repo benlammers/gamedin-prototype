@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
-interface AppDataContext {
+interface AppContextProps {
    showRegister: boolean;
    openRegister: () => void;
    closeRegister: () => void;
@@ -23,7 +23,7 @@ interface AppDataContext {
    removeVouchedPlayer: (player: string) => void;
 }
 
-const AppDataContext = createContext<AppDataContext | undefined>(undefined);
+const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider: React.FC = ({ children }) => {
    const [showRegister, setShowRegister] = useState<boolean>(false);
@@ -49,7 +49,7 @@ export const AppProvider: React.FC = ({ children }) => {
    const removeVouchedPlayer = (player: string) => setVouchedPlayers(vouchedPlayers.filter((p) => p !== player));
 
    return (
-      <AppDataContext.Provider
+      <AppContext.Provider
          value={{
             showRegister,
             openRegister,
@@ -70,12 +70,12 @@ export const AppProvider: React.FC = ({ children }) => {
          }}
       >
          {children}
-      </AppDataContext.Provider>
+      </AppContext.Provider>
    );
 };
 
-export const useAppContext = (): AppDataContext => {
-   const context = useContext(AppDataContext);
+export const useAppContext = (): AppContextProps => {
+   const context = useContext(AppContext);
 
    if (context === undefined) {
       throw new Error('useAppContext must be used within an AppProvider');

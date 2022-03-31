@@ -1,4 +1,3 @@
-import { AddIcon } from '@chakra-ui/icons';
 import { Avatar, Button, FormLabel, Grid, HStack, Image, InputGroup, Select, Text } from '@chakra-ui/react';
 import { useAppContext } from '../AppContext';
 import discordLogo from '../img/discordLogo.svg';
