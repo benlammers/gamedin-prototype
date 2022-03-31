@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
-interface AppContext {
+interface AppDataContext {
    showRegister: boolean;
    openRegister: () => void;
    closeRegister: () => void;
@@ -23,7 +23,7 @@ interface AppContext {
    removeVouchedPlayer: (player: string) => void;
 }
 
-const AppContext = createContext<AppContext | undefined>(undefined);
+const AppDataContext = createContext<AppDataContext | undefined>(undefined);
 
 export const AppProvider: React.FC = ({ children }) => {
    const [showRegister, setShowRegister] = useState<boolean>(false);
@@ -49,7 +49,7 @@ export const AppProvider: React.FC = ({ children }) => {
    const removeVouchedPlayer = (player: string) => setVouchedPlayers(vouchedPlayers.filter((p) => p !== player));
 
    return (
-      <AppContext.Provider
+      <AppDataContext.Provider
          value={{
             showRegister,
             openRegister,
@@ -66,18 +66,19 @@ export const AppProvider: React.FC = ({ children }) => {
             connectToEpic,
             vouchedPlayers,
             addVouchedPlayer,
-            removeVouchedPlayer
-         }}>
+            removeVouchedPlayer,
+         }}
+      >
          {children}
-      </AppContext.Provider>
+      </AppDataContext.Provider>
    );
 };
 
-export const useAppContext = (): AppContext => {
-   const context = useContext(AppContext);
+export const useAppContext = (): AppDataContext => {
+   const context = useContext(AppDataContext);
 
    if (context === undefined) {
-      throw new Error("useAppContext must be used within an AppProvider");
+      throw new Error('useAppContext must be used within an AppProvider');
    }
    return context;
 };
