@@ -6,7 +6,7 @@ import { TeammateModal } from "./TeammateModal";
 import { useAppContext } from "../AppContext";
 import { TriosIcon } from "./TriosIcon";
 import fortnite from "../img/fortnite.png";
-import arrowLeft from "../img/arrowLeft.svg";
+import arrowLeft from "../img/arrowLeft.png";
 import { useState } from "react";
 
 export enum Role {

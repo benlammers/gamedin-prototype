@@ -1,7 +1,7 @@
 import { Grid, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import fortnite from "../img/fortnite.png";
-import arrowLeft from "../img/arrowLeft.svg";
+import arrowLeft from "../img/arrowLeft.png";
 import { DuosIcon } from "./DuosIcon";
 import { TriosIcon } from "./TriosIcon";
 
