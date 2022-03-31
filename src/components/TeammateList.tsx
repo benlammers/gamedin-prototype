@@ -55,6 +55,30 @@ const TEAMMATES: TeammateItemProps[] = [
       vouches: 104,
       arenaPoints: 8654,
    },
+   {
+      name: 'Deyy',
+      role: Role.FRAGGER,
+      vouches: 254,
+      arenaPoints: 7640,
+   },
+   {
+      name: 'Bugha',
+      role: Role.INGAMELEADER,
+      vouches: 503,
+      arenaPoints: 14302,
+   },
+   {
+      name: 'NickMercs',
+      role: Role.SUPPORT,
+      vouches: 153,
+      arenaPoints: 4520,
+   },
+   {
+      name: 'Pryzux',
+      role: Role.INGAMELEADER,
+      vouches: 643,
+      arenaPoints: 52302,
+   },
 ];
 
 export interface TeammateItemProps {
